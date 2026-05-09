@@ -1,0 +1,31 @@
+import React from 'react';
+
+export function Logo({ size = 28 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="grad" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#818cf8"/>
+          <stop offset="42%" stopColor="#6366f1"/>
+          <stop offset="100%" stopColor="#4f46e5"/>
+        </linearGradient>
+        <linearGradient id="shine" x1="0" y1="0" x2="0" y2="44" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="white" stopOpacity="0.13"/>
+          <stop offset="60%" stopColor="white" stopOpacity="0"/>
+        </linearGradient>
+        <clipPath id="brain">
+          <path d="M22 3 C24 3 25 5 25 8 C28 4 41 9 41 19 C41 28 35 36 27 39 C25 40 23 41 22 41 C21 41 19 40 17 39 C9 36 3 28 3 19 C3 9 16 4 19 8 C19 5 20 3 22 3Z"/>
+        </clipPath>
+      </defs>
+      <path d="M22 3 C24 3 25 5 25 8 C28 4 41 9 41 19 C41 28 35 36 27 39 C25 40 23 41 22 41 C21 41 19 40 17 39 C9 36 3 28 3 19 C3 9 16 4 19 8 C19 5 20 3 22 3Z" fill="url(#grad)"/>
+      <path d="M22 3 C24 3 25 5 25 8 C28 4 41 9 41 19 C41 28 35 36 27 39 C25 40 23 41 22 41 C21 41 19 40 17 39 C9 36 3 28 3 19 C3 9 16 4 19 8 C19 5 20 3 22 3Z" fill="url(#shine)"/>
+      <rect x="20.5" y="0" width="3" height="26.5" fill="#080809" clipPath="url(#brain)"/>
+      <rect x="0" y="26.5" width="44" height="3" fill="#080809" clipPath="url(#brain)"/>
+      <path d="M8 20 C9 14 13 10 17 10" stroke="white" strokeOpacity="0.16" strokeWidth="1.3" fill="none" strokeLinecap="round" clipPath="url(#brain)"/>
+      <path d="M36 20 C35 14 31 10 27 10" stroke="white" strokeOpacity="0.16" strokeWidth="1.3" fill="none" strokeLinecap="round" clipPath="url(#brain)"/>
+      <rect x="7" y="34" width="8" height="1.2" rx="0.55" fill="white" fillOpacity="0.25" clipPath="url(#brain)"/>
+      <rect x="17" y="33.5" width="2.2" height="2" rx="0.4" fill="white" fillOpacity="0.40" clipPath="url(#brain)"/>
+      <circle cx="35" cy="13" r="1.6" fill="white" fillOpacity="0.35" clipPath="url(#brain)"/>
+    </svg>
+  );
+}
