@@ -18,7 +18,7 @@ All decisions, architecture, and project context live in `./vault/`. This replac
 3. Do not assume prior conversation context — the vault is authoritative
 
 **During work:**
-- Create a session log in `vault/Sessions/` before doing anything else
+- Create a session log in `vault/Sessions/` before doing anything else — filename format: `YYYY-MM-DD — Session NN.md` (increment NN from the last session in the index)
 - Write decisions to the correct `vault/Decisions/` subfolder immediately as they are made
 - New open questions go in `vault/Questions/Open/` as individual notes
 - When a question is answered, rewrite its note with `status: resolved` and move it to `vault/Questions/Resolved/`
@@ -35,7 +35,7 @@ Do not re-open these without explicit user instruction:
 
 | Decision | Resolution |
 |---|---|
-| What Mind Lab is | Desktop PTY manager + workspace UI. Not an API wrapper. See [[Decisions/Architecture Clarification — What Mind Lab Is]] |
+| What Mind Lab is | Desktop PTY manager + workspace UI. Not an API wrapper. See [[Decisions/Architecture/What Mind Lab Is]] |
 | Deployment | Desktop app (Electron). Self-hosted, single-user. Extensible for teams later. |
 | CLI support | Claude Code first. Codex, Gemini CLI, Copilot planned. No AI SDK in Mind Lab itself. |
 | Memory | CLI tools own their own memory (e.g. CLAUDE.md). Mind Lab persists workspace state only. |

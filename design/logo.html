@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mind Lab — Logo</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:    #0a0a0b;
+      --panel:  #111115;
+      --border: #1e1e26;
+      --dim:    #3a3a46;
+      --muted:  #6b6b7a;
+      --text:   #e2e2ea;
+      --accent: #6366f1;
+    }
+
+    body {
+      background: var(--ink);
+      color: var(--text);
+      font-family: "Segoe UI Variable Display","Segoe UI",-apple-system,system-ui,sans-serif;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    /* ── Page layout ── */
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 64px 40px 80px;
+    }
+
+    .eyebrow {
+      font-size: 10px; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--muted);
+      margin-bottom: 48px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .eyebrow::before, .eyebrow::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
+    }
+
+    /* ── Hero — large mark ── */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      margin-bottom: 72px;
+    }
+
+    /* ── Lockups grid ── */
+    .lockups {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .lockup-card {
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .lockup-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(99,102,241,.06) 0%, transparent 70%);
+    }
+    .lockup-card.dark   { background: #080809; }
+    .lockup-card.darker { background: #040405; }
+    .lockup-card.mid    { background: #141418; }
+    .lockup-card.light  { background: #f0f0f5; }
+
+    /* ── Sizes row ── */
+    .sizes-card {
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: #0c0c10;
+      padding: 32px 40px;
+      display: flex;
+      align-items: flex-end;
+      gap: 36px;
+      margin-bottom: 16px;
+    }
+    .size-item {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .size-label {
+      font-size: 9.5px; font-weight: 600; color: var(--dim);
+      letter-spacing: .1em; text-transform: uppercase;
+    }
+
+    /* ── Colors row ── */
+    .colors-card {
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: #080809;
+      padding: 28px 40px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .color-swatch {
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .swatch-box {
+      width: 48px; height: 48px; border-radius: 8px;
+    }
+    .swatch-label { font-size: 9px; color: var(--dim); letter-spacing: .04em; }
+    .swatch-hex   { font-size: 10px; font-family: "Cascadia Code","Fira Code","Consolas",monospace; color: var(--muted); }
+
+    /* ── Light bg row ── */
+    .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    /* ── SVG wordmark shared styles ── */
+    .wm-text-mind {
+      font-family: "Segoe UI Variable Display","Segoe UI",-apple-system,system-ui,sans-serif;
+      font-weight: 300;
+      letter-spacing: -0.01em;
+    }
+    .wm-text-lab {
+      font-family: "Segoe UI Variable Display","Segoe UI",-apple-system,system-ui,sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="eyebrow">Mind Lab &nbsp;·&nbsp; Brand Identity</div>
+
+  <!-- ── Hero: large mark ── -->
+  <div class="hero">
+    <!-- THE MARK — large -->
+    <svg width="120" height="120" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <!-- Primary diagonal gradient — indigo to violet -->
+        <linearGradient id="g-hero" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+          <stop offset="0%"   stop-color="#818cf8"/>
+          <stop offset="45%"  stop-color="#6366f1"/>
+          <stop offset="100%" stop-color="#4f46e5"/>
+        </linearGradient>
+        <!-- Subtle highlight overlay gradient -->
+        <linearGradient id="g-shine" x1="0" y1="0" x2="0" y2="44" gradientUnits="userSpaceOnUse">
+          <stop offset="0%"   stop-color="white" stop-opacity="0.12"/>
+          <stop offset="100%" stop-color="white" stop-opacity="0"/>
+        </linearGradient>
+        <!-- Clip mask: the 3 panel shapes -->
+        <clipPath id="panels-hero">
+          <rect x="0"  y="0"  width="20" height="19" rx="3.5"/>
+          <rect x="24" y="0"  width="20" height="19" rx="3.5"/>
+          <rect x="0"  y="23" width="44" height="21" rx="4"/>
+        </clipPath>
+      </defs>
+      <!-- Base gradient fill through panels -->
+      <rect width="44" height="44" fill="url(#g-hero)"  clip-path="url(#panels-hero)"/>
+      <!-- Shine overlay -->
+      <rect width="44" height="44" fill="url(#g-shine)" clip-path="url(#panels-hero)"/>
+      <!-- Cursor blink detail: bottom panel, left side -->
+      <!-- Prompt line -->
+      <rect x="6.5" y="34.5" width="9"  height="1.25" rx=".6"  fill="white" opacity="0.3"  clip-path="url(#panels-hero)"/>
+      <!-- Cursor block -->
+      <rect x="17"  y="34"   width="2.5" height="2"   rx=".5"  fill="white" opacity="0.45" clip-path="url(#panels-hero)"/>
+      <!-- Top-right panel: tiny active indicator dot -->
+      <circle cx="37.5" cy="4.5" r="1.5" fill="white" opacity="0.4" clip-path="url(#panels-hero)"/>
+    </svg>
+
+    <!-- Hero full lockup -->
+    <svg width="280" height="52" viewBox="0 0 280 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g-lock" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+          <stop offset="0%"   stop-color="#818cf8"/>
+          <stop offset="45%"  stop-color="#6366f1"/>
+          <stop offset="100%" stop-color="#4f46e5"/>
+        </linearGradient>
+        <linearGradient id="g-lock-shine" x1="0" y1="0" x2="0" y2="44" gradientUnits="userSpaceOnUse">
+          <stop offset="0%"   stop-color="white" stop-opacity="0.12"/>
+          <stop offset="100%" stop-color="white" stop-opacity="0"/>
+        </linearGradient>
+        <clipPath id="panels-lock">
+          <rect x="4"  y="4"  width="17" height="16.5" rx="3"/>
+          <rect x="24" y="4"  width="17" height="16.5" rx="3"/>
+          <rect x="4"  y="24" width="37" height="18"   rx="3.5"/>
+        </clipPath>
+      </defs>
+      <!-- Mark -->
+      <rect x="4" y="4" width="37" height="44" fill="url(#g-lock)"       clip-path="url(#panels-lock)"/>
+      <rect x="4" y="4" width="37" height="44" fill="url(#g-lock-shine)" clip-path="url(#panels-lock)"/>
+      <!-- Cursor detail -->
+      <rect x="9"  y="35.5" width="7.5" height="1.1" rx=".55" fill="white" opacity="0.3"  clip-path="url(#panels-lock)"/>
+      <rect x="18" y="35"   width="2"   height="1.8" rx=".4"  fill="white" opacity="0.45" clip-path="url(#panels-lock)"/>
+      <!-- Dot on top-right panel -->
+      <circle cx="38" cy="7.5" r="1.3" fill="white" opacity="0.4" clip-path="url(#panels-lock)"/>
+      <!-- Wordmark: "Mind" + "Lab" -->
+      <text x="56" y="30" font-size="28" fill="#e2e2ea"
+        font-family="'Segoe UI Variable Display','Segoe UI',-apple-system,system-ui,sans-serif"
+        font-weight="300" letter-spacing="-0.5">Mind</text>
+      <text x="136" y="30" font-size="28" fill="#e2e2ea"
+        font-family="'Segoe UI Variable Display','Segoe UI',-apple-system,system-ui,sans-serif"
+        font-weight="700" letter-spacing="-1">Lab</text>
+    </svg>
+  </div>
+
+  <!-- ── Lockup variants ── -->
+  <div class="lockups">
+
+    <!-- Dark bg — horizontal lockup -->
+    <div class="lockup-card dark">
+      <svg width="220" height="44" viewBox="0 0 220 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="ga" x1="0" y1="0" x2="38" y2="38" gradientUnits="userSpaceOnUse">
+            <stop offset="0%"   stop-color="#818cf8"/>
+            <stop offset="50%"  stop-color="#6366f1"/>
+            <stop offset="100%" stop-color="#4f46e5"/>
+          </linearGradient>
+          <linearGradient id="ga-s" x1="0" y1="0" x2="0" y2="38" gradientUnits="userSpaceOnUse">
+            <stop offset="0%"   stop-color="white" stop-opacity="0.11"/>
+            <stop offset="100%" stop-color="white" stop-opacity="0"/>
+          </linearGradient>
+          <clipPath id="cp-a">
+            <rect x="0" y="0" width="16" height="15" rx="2.8"/>
+            <rect x="19" y="0" width="16" height="15" rx="2.8"/>
+            <rect x="0" y="18" width="35" height="16" rx="3.2"/>
+          </clipPath>
+        </defs>
+        <rect width="35" height="34" fill="url(#ga)"   clip-path="url(#cp-a)"/>
+        <rect width="35" height="34" fill="url(#ga-s)" clip-path="url(#cp-a)"/>
+        <rect x="4"  y="28" width="6"  height="1" rx=".5" fill="white" opacity="0.28" clip-path="url(#cp-a)"/>
+        <rect x="12" y="27.5" width="1.8" height="1.5" rx=".3" fill="white" opacity="0.42" clip-path="url(#cp-a)"/>
+        <circle cx="31" cy="3.5" r="1.1" fill="white" opacity="0.38" clip-path="url(#cp-a)"/>
+        <text x="46" y="25" font-size="22" fill="#e2e2ea"
+          font-family="'Segoe UI Variable Display','Segoe UI',-apple-system,system-ui,sans-serif"
+          font-weight="300" letter-spacing="-0.3">Mind</text>
+        <text x="102" y="25" font-size="22" fill="#e2e2ea"
+          font-family="'Segoe UI Variable Display','Segoe UI',-apple-system,system-ui,sans-serif"
+          font-weight="700" letter-spacing="-0.8">Lab</text>
+      </svg>
+    </div>
+
+    <!-- Darker bg — icon only -->
+    <div class="lockup-card darker">
+      <svg width="72" height="72" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="gb" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+            <stop offset="0%"   stop-color="#818cf8"/>
+            <stop offset="45%"  stop-color="#6366f1"/>
+            <stop offset="100%" stop-color="#4f46e5"/>
+          </linearGradient>
+          <linearGradient id="gb-s" x1="0" y1="0" x2="0" y2="44" gradientUnits="userSpaceOnUse">
+            <stop offset="0%"   stop-color="white" stop-opacity="0.13"/>
+            <stop offset="100%" stop-color="white" stop-opacity="0"/>
+          </linearGradient>
+          <clipPath id="cp-b">
+            <rect x="0"  y="0"  width="20" height="19" rx="3.5"/>
+            <rect x="24" y="0"  width="20" height="19" rx="3.5"/>
+            <rect x="0"  y="23" width="44" height="21" rx="4"/>
+          </clipPath>
+        </defs>
+        <rect width="44" height="44" fill="url(#gb)"   clip-path="url(#cp-b)"/>
+        <rect width="44" height="44" fill="url(#gb-s)" clip-path="url(#cp-b)"/>
+        <rect x="6.5" y="34.5" width="9"   height="1.25" rx=".6"  fill="white" opacity="0.3"  clip-path="url(#cp-b)"/>
+        <rect x="17"  y="34"   width="2.5"  height="2"    rx=".5"  fill="white" opacity="0.45" clip-path="url(#cp-b)"/>
+        <circle cx="37.5" cy="4.5" r="1.5" fill="white" opacity="0.4" clip-path="url(#cp-b)"/>
+      </svg>
+    </div>
+
+    <!-- Mid bg — stacked lockup -->
+    <div class="lockup-card mid">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:14px;">
+        <svg width="48" height="48" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gc" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+              <stop offset="0%"   stop-color="#818cf8"/>
+              <stop offset="45%"  stop-color="#6366f1"/>
+              <stop offset="100%" stop-color="#4f46e5"/>
+            </linearGradient>
+            <linearGradient id="gc-s" x1="0" y1="0" x2="0" y2="44" gradientUnits="userSpaceOnUse">
+              <stop offset="0%"   stop-color="white" stop-opacity="0.13"/>
+              <stop offset="100%" stop-color="white" stop-opacity="0"/>
+            </linearGradient>
+            <clipPath id="cp-c">
+              <rect x="0"  y="0"  width="20" height="19" rx="3.5"/>
+              <rect x="24" y="0"  width="20" height="19" rx="3.5"/>
+              <rect x="0"  y="23" width="44" height="21" rx="4"/>
+            </clipPath>
+          </defs>
+          <rect width="44" height="44" fill="url(#gc)"   clip-path="url(#cp-c)"/>
+          <rect width="44" height="44" fill="url(#gc-s)" clip-path="url(#cp-c)"/>
+          <rect x="6.5" y="34.5" width="9"   height="1.25" rx=".6"  fill="white" opacity="0.3"  clip-path="url(#cp-c)"/>
+          <rect x="17"  y="34"   width="2.5"  height="2"    rx=".5"  fill="white" opacity="0.45" clip-path="url(#cp-c)"/>
+          <circle cx="37.5" cy="4.5" r="1.5" fill="white" opacity="0.4" clip-path="url(#cp-c)"/>
+        </svg>
+        <svg width="110" height="18" viewBox="0 0 110 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <text x="0" y="14" font-size="16" fill="#e2e2ea"
+            font-family="'Segoe UI Variable Display','Segoe UI',-apple-system,system-ui,sans-serif"
+            font-weight="300" letter-spacing="-0.2">Mind</text>
+          <text x="42" y="14" font-size="16" fill="#e2e2ea"
+            font-family="'Segoe UI Variable Display','Segoe UI',-apple-system,system-ui,sans-serif"
+            font-weight="700" letter-spacing="-0.6">Lab</text>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Light bg -->
+    <div class="lockup-card light">
+      <svg width="220" height="44" viewBox="0 0 220 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="gd" x1="0" y1="0" x2="38" y2="38" gradientUnits="userSpaceOnUse">
+            <stop offset="0%"   stop-color="#818cf8"/>
+            <stop offset="50%"  stop-color="#6366f1"/>
+            <stop offset="100%" stop-color="#4f46e5"/>
+          </linearGradient>
+          <linearGradient id="gd-s" x1="0" y1="0" x2="0" y2="38" gradientUnits="userSpaceOnUse">
+            <stop offset="0%"   stop-color="white" stop-opacity="0.14"/>
+            <stop offset="100%" stop-color="white" stop-opacity="0"/>
+          </linearGradient>
+          <clipPath id="cp-d">
+            <rect x="0" y="0" width="16" height="15" rx="2.8"/>
+            <rect x="19" y="0" width="16" height="15" rx="2.8"/>
+            <rect x="0" y="18" width="35" height="16" rx="3.2"/>
+          </clipPath>
+        </defs>
+        <rect width="35" height="34" fill="url(#gd)"   clip-path="url(#cp-d)"/>
+        <rect width="35" height="34" fill="url(#gd-s)" clip-path="url(#cp-d)"/>
+        <rect x="4"  y="28" width="6"   height="1"   rx=".5" fill="white" opacity="0.28" clip-path="url(#cp-d)"/>
+        <rect x="12" y="27.5" width="1.8" height="1.5" rx=".3" fill="white" opacity="0.42" clip-path="url(#cp-d)"/>
+        <circle cx="31" cy="3.5" r="1.1" fill="white" opacity="0.38" clip-path="url(#cp-d)"/>
+        <text x="46" y="25" font-size="22" fill="#14141a"
+          font-family="'Segoe UI Variable Display','Segoe UI',-apple-system,system-ui,sans-serif"
+          font-weight="300" letter-spacing="-0.3">Mind</text>
+        <text x="102" y="25" font-size="22" fill="#14141a"
+          font-family="'Segoe UI Variable Display','Segoe UI',-apple-system,system-ui,sans-serif"
+          font-weight="700" letter-spacing="-0.8">Lab</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ── Size scale ── -->
+  <div class="sizes-card">
+    <!-- 16px -->
+    <div class="size-item">
+      <svg width="16" height="16" viewBox="0 0 44 44" fill="none">
+        <defs>
+          <linearGradient id="gs1" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#818cf8"/><stop offset="100%" stop-color="#4f46e5"/>
+          </linearGradient>
+          <clipPath id="cp-s1">
+            <rect x="0" y="0" width="20" height="19" rx="3.5"/>
+            <rect x="24" y="0" width="20" height="19" rx="3.5"/>
+            <rect x="0" y="23" width="44" height="21" rx="4"/>
+          </clipPath>
+        </defs>
+        <rect width="44" height="44" fill="url(#gs1)" clip-path="url(#cp-s1)"/>
+      </svg>
+      <span class="size-label">16</span>
+    </div>
+    <!-- 24px -->
+    <div class="size-item">
+      <svg width="24" height="24" viewBox="0 0 44 44" fill="none">
+        <defs>
+          <linearGradient id="gs2" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#818cf8"/><stop offset="100%" stop-color="#4f46e5"/>
+          </linearGradient>
+          <clipPath id="cp-s2">
+            <rect x="0" y="0" width="20" height="19" rx="3.5"/>
+            <rect x="24" y="0" width="20" height="19" rx="3.5"/>
+            <rect x="0" y="23" width="44" height="21" rx="4"/>
+          </clipPath>
+        </defs>
+        <rect width="44" height="44" fill="url(#gs2)" clip-path="url(#cp-s2)"/>
+      </svg>
+      <span class="size-label">24</span>
+    </div>
+    <!-- 32px -->
+    <div class="size-item">
+      <svg width="32" height="32" viewBox="0 0 44 44" fill="none">
+        <defs>
+          <linearGradient id="gs3" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#818cf8"/><stop offset="100%" stop-color="#4f46e5"/>
+          </linearGradient>
+          <linearGradient id="gs3-s" x1="0" y1="0" x2="0" y2="44" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="white" stop-opacity="0.12"/><stop offset="100%" stop-color="white" stop-opacity="0"/>
+          </linearGradient>
+          <clipPath id="cp-s3">
+            <rect x="0" y="0" width="20" height="19" rx="3.5"/>
+            <rect x="24" y="0" width="20" height="19" rx="3.5"/>
+            <rect x="0" y="23" width="44" height="21" rx="4"/>
+          </clipPath>
+        </defs>
+        <rect width="44" height="44" fill="url(#gs3)"   clip-path="url(#cp-s3)"/>
+        <rect width="44" height="44" fill="url(#gs3-s)" clip-path="url(#cp-s3)"/>
+      </svg>
+      <span class="size-label">32</span>
+    </div>
+    <!-- 48px -->
+    <div class="size-item">
+      <svg width="48" height="48" viewBox="0 0 44 44" fill="none">
+        <defs>
+          <linearGradient id="gs4" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#818cf8"/><stop offset="100%" stop-color="#4f46e5"/>
+          </linearGradient>
+          <linearGradient id="gs4-s" x1="0" y1="0" x2="0" y2="44" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="white" stop-opacity="0.12"/><stop offset="100%" stop-color="white" stop-opacity="0"/>
+          </linearGradient>
+          <clipPath id="cp-s4">
+            <rect x="0" y="0" width="20" height="19" rx="3.5"/>
+            <rect x="24" y="0" width="20" height="19" rx="3.5"/>
+            <rect x="0" y="23" width="44" height="21" rx="4"/>
+          </clipPath>
+        </defs>
+        <rect width="44" height="44" fill="url(#gs4)"   clip-path="url(#cp-s4)"/>
+        <rect width="44" height="44" fill="url(#gs4-s)" clip-path="url(#cp-s4)"/>
+        <rect x="6.5" y="34.5" width="9" height="1.25" rx=".6" fill="white" opacity="0.3" clip-path="url(#cp-s4)"/>
+        <rect x="17" y="34"   width="2.5" height="2"   rx=".5" fill="white" opacity="0.45" clip-path="url(#cp-s4)"/>
+      </svg>
+      <span class="size-label">48</span>
+    </div>
+    <!-- 64px -->
+    <div class="size-item">
+      <svg width="64" height="64" viewBox="0 0 44 44" fill="none">
+        <defs>
+          <linearGradient id="gs5" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#818cf8"/><stop offset="100%" stop-color="#4f46e5"/>
+          </linearGradient>
+          <linearGradient id="gs5-s" x1="0" y1="0" x2="0" y2="44" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="white" stop-opacity="0.13"/><stop offset="100%" stop-color="white" stop-opacity="0"/>
+          </linearGradient>
+          <clipPath id="cp-s5">
+            <rect x="0" y="0" width="20" height="19" rx="3.5"/>
+            <rect x="24" y="0" width="20" height="19" rx="3.5"/>
+            <rect x="0" y="23" width="44" height="21" rx="4"/>
+          </clipPath>
+        </defs>
+        <rect width="44" height="44" fill="url(#gs5)"   clip-path="url(#cp-s5)"/>
+        <rect width="44" height="44" fill="url(#gs5-s)" clip-path="url(#cp-s5)"/>
+        <rect x="6.5" y="34.5" width="9"  height="1.25" rx=".6"  fill="white" opacity="0.3"  clip-path="url(#cp-s5)"/>
+        <rect x="17"  y="34"   width="2.5" height="2"    rx=".5"  fill="white" opacity="0.45" clip-path="url(#cp-s5)"/>
+        <circle cx="37.5" cy="4.5" r="1.5" fill="white" opacity="0.4" clip-path="url(#cp-s5)"/>
+      </svg>
+      <span class="size-label">64</span>
+    </div>
+    <!-- 96px -->
+    <div class="size-item">
+      <svg width="96" height="96" viewBox="0 0 44 44" fill="none">
+        <defs>
+          <linearGradient id="gs6" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#818cf8"/><stop offset="100%" stop-color="#4f46e5"/>
+          </linearGradient>
+          <linearGradient id="gs6-s" x1="0" y1="0" x2="0" y2="44" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="white" stop-opacity="0.13"/><stop offset="100%" stop-color="white" stop-opacity="0"/>
+          </linearGradient>
+          <clipPath id="cp-s6">
+            <rect x="0" y="0" width="20" height="19" rx="3.5"/>
+            <rect x="24" y="0" width="20" height="19" rx="3.5"/>
+            <rect x="0" y="23" width="44" height="21" rx="4"/>
+          </clipPath>
+        </defs>
+        <rect width="44" height="44" fill="url(#gs6)"   clip-path="url(#cp-s6)"/>
+        <rect width="44" height="44" fill="url(#gs6-s)" clip-path="url(#cp-s6)"/>
+        <rect x="6.5" y="34.5" width="9"  height="1.25" rx=".6"  fill="white" opacity="0.3"  clip-path="url(#cp-s6)"/>
+        <rect x="17"  y="34"   width="2.5" height="2"    rx=".5"  fill="white" opacity="0.45" clip-path="url(#cp-s6)"/>
+        <circle cx="37.5" cy="4.5" r="1.5" fill="white" opacity="0.4" clip-path="url(#cp-s6)"/>
+      </svg>
+      <span class="size-label">96</span>
+    </div>
+  </div>
+
+  <!-- ── Color palette ── -->
+  <div class="colors-card">
+    <div style="flex:1;">
+      <div style="font-size:10px;font-weight:700;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px;">Color Palette</div>
+      <div style="display:flex;gap:16px;align-items:flex-end;">
+        <div class="color-swatch">
+          <div class="swatch-box" style="background:#818cf8;"></div>
+          <div class="swatch-label">Indigo 400</div>
+          <div class="swatch-hex">#818cf8</div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-box" style="background:#6366f1;"></div>
+          <div class="swatch-label">Indigo 500</div>
+          <div class="swatch-hex">#6366f1</div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-box" style="background:#4f46e5;"></div>
+          <div class="swatch-label">Indigo 600</div>
+          <div class="swatch-hex">#4f46e5</div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-box" style="background:#0a0a0b;border:1px solid #2a2a34;"></div>
+          <div class="swatch-label">Background</div>
+          <div class="swatch-hex">#0a0a0b</div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-box" style="background:#e2e2ea;"></div>
+          <div class="swatch-label">Text</div>
+          <div class="swatch-hex">#e2e2ea</div>
+        </div>
+      </div>
+    </div>
+    <div style="border-left:1px solid var(--border);padding-left:32px;min-width:200px;">
+      <div style="font-size:10px;font-weight:700;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px;">Typography</div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:6px;">Wordmark</div>
+      <div style="font-size:16px;font-weight:300;color:var(--text);letter-spacing:-0.01em;line-height:1;">Mind</div>
+      <div style="font-size:16px;font-weight:700;color:var(--text);letter-spacing:-0.03em;line-height:1;margin-bottom:14px;">Lab</div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:4px;">System stack</div>
+      <div style="font-size:9.5px;font-family:'Cascadia Code','Fira Code','Consolas',monospace;color:var(--dim);line-height:1.6;">Segoe UI Variable<br>system-ui fallback</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

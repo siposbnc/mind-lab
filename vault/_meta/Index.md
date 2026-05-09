@@ -34,7 +34,7 @@ Phase 1 scope definition and repo setup.
 
 ## Questions
 
-- `Questions/Open/` — *(none)*
+- `Questions/Open/` — [[Questions/Open/Native Modules — node-pty Windows Build]] — node-pty won't compile on Windows; deferred until PTY features begin
 - `Questions/Resolved/` — Deployment Model, Model Support, Target User, Memory Scope, Monetization
 
 ---
@@ -46,6 +46,9 @@ Phase 1 scope definition and repo setup.
 - [[Decisions/Product/Model Support]] — Claude Code first, other CLIs Phase 2
 - [[Decisions/Product/Target User]] — Solo developer, team planned
 - [[Decisions/Product/Monetization]] — Open-source
+
+**Tech**
+- [[Decisions/Tech/Electron Version]] — Pinned to v36; Electron 42 broke better-sqlite3 compilation
 
 **Architecture**
 - [[Decisions/Architecture/What Mind Lab Is]] — Desktop PTY manager, not an API wrapper
