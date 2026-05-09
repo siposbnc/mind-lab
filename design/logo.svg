@@ -1,34 +1,58 @@
 <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!--
+    Mind Lab logomark.
+    Brain silhouette (top view) resolved into workspace panel tiles.
+    Central sulcus = vertical panel divider.
+    Horizontal cut = workspace split (two-panel top + one-panel bottom).
+    Optimised for dark backgrounds.
+  -->
   <defs>
-    <!-- Primary gradient: light indigo → indigo → deep indigo, diagonal -->
     <linearGradient id="grad" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
       <stop offset="0%"   stop-color="#818cf8"/>
-      <stop offset="45%"  stop-color="#6366f1"/>
+      <stop offset="42%"  stop-color="#6366f1"/>
       <stop offset="100%" stop-color="#4f46e5"/>
     </linearGradient>
-    <!-- Shine overlay: top-to-bottom white fade -->
     <linearGradient id="shine" x1="0" y1="0" x2="0" y2="44" gradientUnits="userSpaceOnUse">
       <stop offset="0%"   stop-color="white" stop-opacity="0.13"/>
-      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+      <stop offset="60%"  stop-color="white" stop-opacity="0"/>
     </linearGradient>
-    <!-- Clip path: 3 panel shapes (2 top + 1 full-width bottom) -->
-    <clipPath id="panels">
-      <rect x="0"  y="0"  width="20" height="19" rx="3.5"/>
-      <rect x="24" y="0"  width="20" height="19" rx="3.5"/>
-      <rect x="0"  y="23" width="44" height="21" rx="4"/>
+    <clipPath id="brain">
+      <!-- Two-lobed brain silhouette, top view, with longitudinal fissure notch -->
+      <path d="M22 3 C24 3 25 5 25 8 C28 4 41 9 41 19 C41 28 35 36 27 39 C25 40 23 41 22 41 C21 41 19 40 17 39 C9 36 3 28 3 19 C3 9 16 4 19 8 C19 5 20 3 22 3Z"/>
     </clipPath>
   </defs>
 
-  <!-- Base gradient fill clipped to panel shapes -->
-  <rect width="44" height="44" fill="url(#grad)"  clip-path="url(#panels)"/>
-  <!-- Shine overlay -->
-  <rect width="44" height="44" fill="url(#shine)" clip-path="url(#panels)"/>
+  <!-- Brain base fill -->
+  <path d="M22 3 C24 3 25 5 25 8 C28 4 41 9 41 19 C41 28 35 36 27 39 C25 40 23 41 22 41 C21 41 19 40 17 39 C9 36 3 28 3 19 C3 9 16 4 19 8 C19 5 20 3 22 3Z"
+        fill="url(#grad)"/>
 
-  <!-- Terminal cursor detail in bottom panel -->
-  <!-- Prompt line -->
-  <rect x="6.5" y="34.5" width="9"   height="1.25" rx="0.6"  fill="white" fill-opacity="0.30" clip-path="url(#panels)"/>
-  <!-- Cursor block -->
-  <rect x="17"  y="34"   width="2.5" height="2"    rx="0.5"  fill="white" fill-opacity="0.45" clip-path="url(#panels)"/>
-  <!-- Active indicator dot on top-right panel -->
-  <circle cx="37.5" cy="4.5" r="1.5" fill="white" fill-opacity="0.40" clip-path="url(#panels)"/>
+  <!-- Top-to-bottom shine -->
+  <path d="M22 3 C24 3 25 5 25 8 C28 4 41 9 41 19 C41 28 35 36 27 39 C25 40 23 41 22 41 C21 41 19 40 17 39 C9 36 3 28 3 19 C3 9 16 4 19 8 C19 5 20 3 22 3Z"
+        fill="url(#shine)"/>
+
+  <!-- Central fissure + vertical panel divider -->
+  <rect x="20.5" y="0" width="3" height="26.5"
+        fill="#080809" clip-path="url(#brain)"/>
+
+  <!-- Horizontal workspace split (top two panels / bottom panel) -->
+  <rect x="0" y="26.5" width="44" height="3"
+        fill="#080809" clip-path="url(#brain)"/>
+
+  <!-- Sulci — subtle brain fold curves in each lobe -->
+  <path d="M8 20 C9 14 13 10 17 10"
+        stroke="white" stroke-opacity="0.16" stroke-width="1.3"
+        fill="none" stroke-linecap="round" clip-path="url(#brain)"/>
+  <path d="M36 20 C35 14 31 10 27 10"
+        stroke="white" stroke-opacity="0.16" stroke-width="1.3"
+        fill="none" stroke-linecap="round" clip-path="url(#brain)"/>
+
+  <!-- Terminal cursor in bottom panel (CLI reference) -->
+  <rect x="7"  y="34"   width="8"   height="1.2" rx="0.55"
+        fill="white" fill-opacity="0.25" clip-path="url(#brain)"/>
+  <rect x="17" y="33.5" width="2.2" height="2"   rx="0.4"
+        fill="white" fill-opacity="0.40" clip-path="url(#brain)"/>
+
+  <!-- Active session dot — top-right lobe -->
+  <circle cx="35" cy="13" r="1.6"
+          fill="white" fill-opacity="0.35" clip-path="url(#brain)"/>
 </svg>
