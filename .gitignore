@@ -1,0 +1,47 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build outputs
+dist/
+out/
+.next/
+build/
+
+# Electron
+release/
+*.dmg
+*.exe
+*.AppImage
+*.deb
+*.rpm
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Database
+*.db
+*.db-shm
+*.db-wal
+
+# Logs (session logs managed separately under ~/.mind-lab)
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# TypeScript
+*.tsbuildinfo
+
+# Vault (Obsidian workspace state is local)
+vault/.obsidian/workspace.json
